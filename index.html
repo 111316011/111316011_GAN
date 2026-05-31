@@ -66,7 +66,7 @@
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+<main class="max-w-5xl mx-auto px-6 py-12 space-y-12">
 
         <section class="text-center max-w-3xl mx-auto space-y-4">
             <span class="text-xs font-semibold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 code-font">Course Final Project</span>
@@ -83,131 +83,101 @@
                 <h3 class="text-2xl font-bold text-white">一、 演算法核心導覽</h3>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-2 card-glow">
+            <div class="space-y-6 w-full">
+                
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-2 card-glow w-full">
                     <div class="flex items-center gap-2 text-indigo-400 font-bold">
                         <span class="bg-indigo-500/20 text-indigo-300 text-xs px-2 py-0.5 rounded-md font-mono">1</span>
-                        <h4>這個演算法是什麼？</h4>
+                        <h4 class="text-white text-base sm:text-lg">這個演算法是什麼？</h4>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        <strong class="text-slate-200">GAN（生成對抗網路）</strong>是由 Ian Goodfellow 在 2014 年提出的一種深度學習架構。它的核心思想非常獨特，不是讓一個神經網路孤軍奮戰，而是讓兩個神經網路（負責無中生有的<span class="text-emerald-400">生成器 G</span> 與負責嚴格審查的<span class="text-rose-400">辨別器 D</span>）在「互相競爭」中共同進步。
+                        <strong class="text-slate-200">GAN（生成對抗網路）</strong>是由 Ian Goodfellow 在 2014 年提出的一種深度學習架構。它的核心思想非常獨特，不是讓一個神經網路孤軍奮戰，而是讓兩個神經網路（負責無中生有的<span class="text-emerald-400 font-bold">生成器 G</span> 與負責嚴格審查的<span class="text-rose-400 font-bold">辨別器 D</span>）在「互相競爭」中共同進步。
                     </p>
                 </div>
 
-                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-2 card-glow">
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-4 card-glow w-full">
                     <div class="flex items-center gap-2 text-cyan-400 font-bold">
                         <span class="bg-cyan-500/20 text-cyan-300 text-xs px-2 py-0.5 rounded-md font-mono">2</span>
-                        <h4>主要解決什麼問題？</h4>
+                        <h4 class="text-white text-base sm:text-lg">主要解決什麼問題？</h4>
                     </div>
-                    <div class="bg-slate-900/40 p-5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                <p>
-                    在 <span class="text-indigo-400 font-bold">GAN</span> 出現之前，傳統機器學習在<strong class="text-slate-200">「創造新數據」</strong>（尤其是高解析度影像、複雜音訊）上效果不理想，生成的作品往往模糊且缺乏細節。GAN 解決了以下核心問題：
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 text-xs sm:text-sm leading-relaxed">
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-850 space-y-2 card-glow">
-                    <h4 class="font-bold text-emerald-400 flex items-center gap-1.5">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> 從無到有的數據生成
-                    </h4>
-                    <p class="text-slate-400">
-                        讓電腦能夠理解現實世界的複雜分布，並創造出原本不存在的、高度逼真的全新內容。
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        在 <span class="text-indigo-400 font-bold">GAN</span> 出現之前，傳統機器學習在<strong class="text-slate-200">「創造新數據」</strong>（尤其是高解析度影像、複雜音訊）上效果不理想，生成的作品往往模糊且缺乏細節。GAN 解決了以下核心問題：
                     </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 text-xs sm:text-sm leading-relaxed">
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-1">
+                            <h5 class="font-bold text-emerald-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> 從無到有的數據生成
+                            </h5>
+                            <p class="text-slate-400">
+                                讓電腦能夠理解現實世界的複雜分布，並創造出原本不存在的、高度逼真全新內容。
+                            </p>
+                        </div>
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-850 space-y-1">
+                            <h5 class="font-bold text-cyan-400 flex items-center gap-1.5">
+                                <i class="fa-solid fa-graduation-cap"></i> 擺脫對大量人工標記的依賴
+                            </h5>
+                            <p class="text-slate-400">
+                                GAN 的判別器會自動扮演「指導老師」的角色，不需要人類逐一告訴生成器哪裡畫得好、哪裡畫得不好。
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-850 space-y-2 card-glow">
-                    <h4 class="font-bold text-cyan-400 flex items-center gap-1.5">
-                        <i class="fa-solid fa-graduation-cap"></i> 擺脫對大量人工標記的依賴
-                    </h4>
-                    <p class="text-slate-400">
-                        GAN 的判別器會自動扮演「指導老師」的角色，不需要人類逐一告訴生成器哪裡畫得好、哪裡畫得不好。
-                    </p>
-                </div>
-            </div>
-            </div>
-
-                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-2 card-glow">
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-4 card-glow w-full">
                     <div class="flex items-center gap-2 text-amber-400 font-bold">
                         <span class="bg-amber-500/20 text-amber-300 text-xs px-2 py-0.5 rounded-md font-mono">3</span>
-                        <h4>基本運作流程是什麼？</h4>
+                        <h4 class="text-white text-base sm:text-lg">基本運作流程是什麼？</h4>
                     </div>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                GAN 的訓練流程是一個「雙回路的交替訓練」過程
-            </p>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        GAN 的訓練流程是一個<span class="text-indigo-400 font-bold">「雙回路的交替訓練」</span>過程：
+                    </p>
 
-            <div class="space-y-6">
-                <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-6 space-y-4 shadow-lg">
-                    <div class="flex items-center gap-2">
-                        <span class="bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded text-[11px] font-bold code-font">STEP 1</span>
-                        <h4 class="font-bold text-white text-base">訓練辨別器（Discriminator）—— 培養好警察</h4>
+                    <div class="space-y-4">
+                        <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-3 shadow-lg">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2 py-0.5 rounded text-[11px] font-bold code-font">STEP 1</span>
+                                <h5 class="font-bold text-white text-sm sm:text-base">訓練辨別器（Discriminator）—— 培養好警察</h5>
+                            </div>
+                            <ol class="list-decimal list-outside pl-5 text-xs sm:text-sm text-slate-400 space-y-2">
+                                <li><span class="text-slate-200 font-medium">抽取真實樣本：</span>從真實資料集中抽取一組「真圖」，並將標籤設定為 <span class="text-emerald-400 font-bold">1</span>。</li>
+                                <li><span class="text-slate-200 font-medium">生成虛擬贗品：</span>讓生成器用隨機雜訊隨便產生一組「假圖」，並將標籤設定為 <span class="text-rose-400 font-bold">0</span>。</li>
+                                <li><span class="text-slate-200 font-medium">餵入數據審查：</span>將真圖和假圖同時餵給辨別器 D，讓它進行二分法的判斷。</li>
+                                <li><span class="text-amber-400 font-bold">⚖️ 計算 Loss（損失函數）：</span>計算辨別器的答題錯誤率，看 D 有沒有把真圖猜成假。</li>
+                                <li><span class="text-indigo-400 font-bold">🔄 權重反向更新：</span>透過反向傳播，<span class="underline decoration-indigo-500/50 font-bold text-slate-300">只更新辨別器 D 的參數</span>，讓它下一次鑑別得更精準。</li>
+                            </ol>
+                        </div>
+
+                        <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-5 space-y-3 shadow-lg">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded text-[11px] font-bold code-font">STEP 2</span>
+                                <h5 class="font-bold text-white text-sm sm:text-base">訓練生成器（Generator）—— 培養頂級造假大師</h5>
+                            </div>
+                            <ol class="list-decimal list-outside pl-5 text-xs sm:text-sm text-slate-400 space-y-2">
+                                <li><span class="text-slate-200 font-medium">再度製造假貨：</span>給生成器一組全新的隨機雜訊，再次生成一組假圖。</li>
+                                <li><span class="text-slate-200 font-medium">蓄意欺騙評審：</span>把這組假圖餵給辨別器 D，但這次<span class="text-emerald-400 font-bold">故意把假圖的目標標籤設為 1</span>（騙 D 這是真圖）。</li>
+                                <li><span class="text-amber-400 font-bold">⚖️ 計算 Loss（損失函數）：</span>如果辨別器 D 依然精明抓到是假圖，生成器的 Loss 就會很高（代表騙人失敗）。</li>
+                                <li><span class="text-indigo-400 font-bold">🔄 權重反向更新：</span>透過反向傳播，<span class="underline decoration-indigo-500/50 font-bold text-slate-300">只更新生成器 G 的參數</span>（固定 D 參數）。生成器會從失敗中學習如何改進。</li>
+                            </ol>
+                        </div>
                     </div>
-                    <ol class="list-decimal list-outside pl-5 text-xs sm:text-sm text-slate-400 space-y-4">
-                        <li>
-                            <span class="text-slate-200 font-medium">抽取真實樣本：</span><br>
-                            從真實資料集中抽取一組「真圖」，並將標籤設定為 <span class="text-emerald-400 font-bold">1</span>。
-                        </li>
-                        <li>
-                            <span class="text-slate-200 font-medium">生成虛擬贗品：</span><br>
-                            讓生成器用隨機雜訊隨便產生一組「假圖」，並將標籤設定為 <span class="text-rose-400 font-bold">0</span>。
-                        </li>
-                        <li>
-                            <span class="text-slate-200 font-medium">餵入數據審查：</span><br>
-                            將真圖和假圖同時餵給辨別器 D，讓它進行二分法的判斷。
-                        </li>
-                        <li>
-                            <span class="text-amber-400 font-bold">⚖️ 計算 Loss（損失函數）：</span><br>
-                            計算辨別器的答題錯誤率，看 D 有沒有把真圖猜成假、或把假圖猜成真。
-                        </li>
-                        <li>
-                            <span class="text-indigo-400 font-bold">🔄 權重反向更新：</span><br>
-                            透過反向傳播（Backpropagation），<span class="underline decoration-indigo-500/50 font-bold text-slate-300">只更新辨別器 D 的參數</span>，讓它下一次鑑別得更精準。
-                        </li>
-                    </ol>
+
+                    <p class="text-xs text-slate-500 text-center italic mt-2">
+                        ※ 步驟 1 → 步驟 2 的循環會不斷重複，直到雙方實力都達到頂峰（納許均衡）。
+                    </p>
                 </div>
 
-                <div class="bg-slate-900/70 border border-slate-800 rounded-xl p-6 space-y-4 shadow-lg">
-                    <div class="flex items-center gap-2">
-                        <span class="bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded text-[11px] font-bold code-font">STEP 2</span>
-                        <h4 class="font-bold text-white text-base">訓練生成器（Generator）—— 培養頂級造假大師</h4>
-                    </div>
-                    <ol class="list-decimal list-outside pl-5 text-xs sm:text-sm text-slate-400 space-y-4">
-                        <li>
-                            <span class="text-slate-200 font-medium">再度製造假貨：</span><br>
-                            給生成器一組全新的隨機雜訊，再次生成一組假圖。
-                        </li>
-                        <li>
-                            <span class="text-slate-200 font-medium">蓄意欺騙評審：</span><br>
-                            把這組假圖餵給辨別器 D，但這次<span class="text-emerald-400 font-bold">故意把假圖的目標標籤設為 1</span>（也就是騙 AI 說這是真圖）。
-                        </li>
-                        <li>
-                            <span class="text-amber-400 font-bold">⚖️ 計算 Loss（損失函數）：</span><br>
-                            如果辨別器 D 依然精明、抓到這是假圖（給了低分），此時生成器的 Loss 就會很高，代表它「騙人失敗」。
-                        </li>
-                        <li>
-                            <span class="text-indigo-400 font-bold">🔄 權重反向更新：</span><br>
-                            透過反向傳播，<span class="underline decoration-indigo-500/50 font-bold text-slate-300">只更新生成器 G 的參數</span>（此時固定住 D 的參數不變）。生成器會從失敗中學習如何改進畫功，以便下次能成功瞞天過海。
-                        </li>
-                    </ol>
-                </div>
-            </div>
-
-            <p class="text-xs text-slate-500 text-center italic mt-2">
-                ※ 步驟 1 → 步驟 2 的循環會不斷重複，直到雙方實力都達到頂峰（納許均衡）。
-            </p>
-
-        </section>
-                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-2 card-glow">
+                <div class="bg-slate-900/40 border border-slate-800 p-5 rounded-xl space-y-2 card-glow w-full">
                     <div class="flex items-center gap-2 text-emerald-400 font-bold">
                         <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-0.5 rounded-md font-mono">4</span>
-                        <h4>常見應用有哪些？</h4>
+                        <h4 class="text-white text-base sm:text-lg">常見應用有哪些？</h4>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         應用層面非常廣泛且直觀！包含<strong class="text-slate-200">影像風格轉換</strong>（如線條草圖自動塗色、模糊 CT 斷層轉換成高清 MRI）、<strong class="text-slate-200">人臉生成與變臉</strong>（StyleGAN 生成不存在的逼真臉孔）以及<strong class="text-slate-200">圖像超解析度</strong>（SRGAN 將充滿馬賽克的老舊畫面無損放大成 4K 影像）。
                     </p>
                 </div>
-            </div>
 
-            <div class="bg-slate-900/30 border border-slate-800 rounded-xl p-6 mt-4 space-y-3">
+            </div> <div class="bg-slate-900/30 border border-slate-800 rounded-xl p-6 mt-6 space-y-3 w-full">
                 <h4 class="font-bold text-white text-base flex items-center gap-2">
                     <i class="fa-solid fa-user-shield text-indigo-400"></i> 核心精髓比喻：假鈔販子與警察
                 </h4>
@@ -228,7 +198,6 @@
             </div>
         </section>
 
- 
     </main>
 
     <footer class="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs text-slate-600 code-font tracking-wider">
