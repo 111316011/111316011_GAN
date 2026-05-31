@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末評量：生成對抗網路 (GAN) 主題探究與 AI 輔助學習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .tech-gradient { background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); }
+        .card-glow { box-shadow: 0 0 20px rgba(99, 102, 241, 0.15); transition: all 0.3s ease; }
+        .card-glow:hover { box-shadow: 0 0 30px rgba(99, 102, 241, 0.3); transform: translateY(-2px); }
+    </style>
+</head>
+<body class="tech-gradient min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
+
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 p-2.5 rounded-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-brain text-xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide text-white">期末評量：深度學習演算法主題探究</h1>
+                    <p class="text-xs text-indigo-400 font-medium mt-0.5">Generative Adversarial Networks (GAN)</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 text-sm text-slate-400 bg-slate-950/60 px-4 py-2 rounded-lg border border-slate-800">
+                <div><span class="text-slate-500 mr-1">學號:</span> <span class="text-indigo-300 font-mono">B11200000</span></div>
+                <div class="h-4 w-px bg-slate-800"></div>
+                <div><span class="text-slate-500 mr-1">姓名:</span> <span class="text-indigo-300">你的名字</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+
+        <section class="text-center max-w-3xl mx-auto space-y-4">
+            <span class="text-xs font-semibold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Course Final Project</span>
+            <h2 class="text-4xl font-extrabold text-white sm:text-5xl tracking-tight">
+                解密生成對抗網路 <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">GAN</span>
+            </h2>
+            <p class="text-base text-slate-400 leading-relaxed">
+                本成果透過 AI 工具輔助學習，深入探討深度學習中極具革命性的架構——GAN。網頁包含演算法核心原理、AI 互動紀錄、內容查證修正、視覺化架構及實際應用案例與反思。
+            </p>
+        </section>
+
+        <hr class="border-slate-800">
+
+        <section id="intro" class="space-y-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-indigo-400 bg-indigo-950 px-2 py-1 rounded border border-indigo-800">任務 1</span>
+                <h3 class="text-2xl font-bold text-white">GAN 是什麼？核心演算法介紹</h3>
+            </div>
+            
+            <p class="text-slate-300 leading-relaxed">
+                生成對抗網路（GAN, Generative Adversarial Networks）由 Ian Goodfellow 於 2014 年提出。其核心思想源自於賽局理論中的**零和博弈**，內部由兩個神經網路構成，兩者在訓練過程中不斷對抗以達到共同進步的目的。
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 card-glow">
+                    <div class="flex items-center gap-3 mb-3 text-emerald-400">
+                        <i class="fa-solid fa-user-secret text-2xl"></i>
+                        <h4 class="font-bold text-lg text-white">生成器 Generator (G) — 偽鈔製造商</h4>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        負責接收一個隨機的高維雜訊（Noise），並試圖透過網路層層轉換，生成出「看起來像真實數據（如圖片）」的假數據。它的終極目標是提高技術，**徹底欺騙判別器**。
+                    </p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 card-glow">
+                    <div class="flex items-center gap-3 mb-3 text-rose-400">
+                        <i class="fa-solid fa-user-shield text-2xl"></i>
+                        <h4 class="font-bold text-lg text-white">判別器 Discriminator (D) — 警察/鑑定專家</h4>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        同時輸入「真實數據」與生成器做出的「假數據」。它的終極目標是**精準分辨真偽**（打分數），給真數據高分、給假數據低分，並將判別結果的反向傳播訊號反饋給生成器。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-slate-950 p-5 rounded-xl border border-slate-800/80 mt-4">
+                <h4 class="text-sm font-semibold text-indigo-400 mb-2"><i class="fa-solid fa-gears mr-1.5"></i> 基本運作流程</h4>
+                <ol class="list-decimal list-inside space-y-2 text-sm text-slate-300">
+                    <li>固定判別器 $D$，讓生成器 $G$ 生成假圖片，並訓練 $G$ 努力騙過 $D$。</li>
+                    <li>固定生成器 $G$，將真圖片與假圖片同時丟給 $D$，訓練 $D$ 的分辨能力。</li>
+                    <li>重複上述步驟，直到兩者達到平衡（納許均衡），此時 $D$ 預測真假的機率均為 0.5（無從分辨）。</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="ai-record" class="space-y-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-indigo-400 bg-indigo-950 px-2 py-1 rounded border border-indigo-800">任務 2</span>
+                <h3 class="text-2xl font-bold text-white">AI 輔助學習紀錄</h3>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-900/30">
+                    <div class="bg-slate-900/80 px-4 py-2.5 text-xs font-mono text-slate-400 flex justify-between items-center border-b border-slate-800">
+                        <span><i class="fa-regular fa-comments mr-1.5"></i> Prompt 1：概念探詢</span>
+                        <span class="text-indigo-400">我 $\rightarrow$ AI 工具</span>
+                    </div>
+                    <div class="p-4 text-sm text-indigo-200 bg-slate-950/40">
+                        「請用淺顯易懂的比喻解釋 GAN 的損失函數（Minimax Loss）是怎麼運作的？」
+                    </div>
+                    <div class="p-4 text-sm border-t border-slate-800/50 text-slate-300 space-y-2">
+                        <p class="font-semibold text-xs text-emerald-400"><i class="fa-solid fa-robot mr-1"></i> AI 回答重點摘要：</p>
+                        <p>GAN 的核心公式可以寫作 $\min_G \max_D V(D,G)$。這是一個極大極小化問題：警察（D）希望能最大化其正確分辨真偽的機率，而偽鈔犯（G）則希望能最小化被抓到的機率。雙方拉鋸的動態過程就是透過這個損失函數來控制導向的。</p>
+                    </div>
+                </div>
+
+                <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-900/30">
+                    <div class="bg-slate-900/80 px-4 py-2.5 text-xs font-mono text-slate-400 flex justify-between items-center border-b border-slate-800">
+                        <span><i class="fa-regular fa-comments mr-1.5"></i> Prompt 2：實作瓶頸</span>
+                        <span class="text-indigo-400">我 $\rightarrow$ AI 工具</span>
+                    </div>
+                    <div class="p-4 text-sm text-indigo-200 bg-slate-950/40">
+                        「為什麼我的 GAN 模型訓練出來的圖片全部長得一模一樣？該怎麼解決？」
+                    </div>
+                    <div class="p-4 text-sm border-t border-slate-800/50 text-slate-300 space-y-2">
+                        <p class="font-semibold text-xs text-emerald-400"><i class="fa-solid fa-robot mr-1"></i> AI 回答重點摘要：</p>
+                        <p>這叫做**模式崩潰（Mode Collapse）**。是因為生成器發現了判別器的某個漏洞（例如生成特定的某張貓臉最容易騙過 D），於是它不再追求多樣性，只瘋狂複製這張圖。AI 建議可以更換損失函數為 WGAN（Wasserstein GAN）或引入 Minibatch Discrimination。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-850 text-sm text-slate-400">
+                <span class="text-white font-medium"><i class="fa-solid fa-lightbulb text-amber-400 mr-1.5"></i> AI 如何幫助我理解：</span>
+                AI 工具能在我遇到抽象數學公式或實作 Bug（如 Mode Collapse）時，迅速將其轉化為易懂的比喻與具體的 debug 方向，大幅縮短了查閱厚重論文的時間。
+            </div>
+        </section>
+
+        <section id="verification" class="space-y-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-indigo-400 bg-indigo-950 px-2 py-1 rounded border border-indigo-800">任務 3</span>
+                <h3 class="text-2xl font-bold text-white">關鍵查證與修正內容</h3>
+            </div>
+            
+            <p class="text-slate-300 leading-relaxed">
+                在引導學習過程中，我發現 AI 雖然對基本觀念解釋詳盡，但在面對**傳統 GAN 的數學限制**與**收斂性問題**時，回答較為模糊，甚至有些過度簡化。因此我針對「傳統 GAN 的缺點」進行了資料查證與理解修正：
+            </p>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+                <table class="w-full text-sm text-left text-slate-300">
+                    <thead class="text-xs uppercase bg-slate-900 text-slate-400 border-b border-slate-800">
+                        <tr>
+                            <th class="px-6 py-4">AI 原本的回答 / 我的初步盲點</th>
+                            <th class="px-6 py-4">經查證文獻後的正確理解與修正</th>
+                            <th class="px-6 py-4">查證資料來源</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 bg-slate-950/40">
+                        <tr>
+                            <td class="px-6 py-4 text-slate-400">
+                                只要把判別器 $D$ 訓練得越強、越完美，生成器 $G$ 就能學得越快。
+                            </td>
+                            <td class="px-6 py-4 text-emerald-400/90 font-medium">
+                                <span class="text-rose-400 block mb-1">修正：</span>
+                                傳統 GAN 使用 JS 散度（Jensen-Shannon Divergence）。當 $D$ 太完美時，兩者分布若無重疊，梯度會直接歸零，導致 $G$ 發生**梯度消失**根本學不到東西。
+                            </td>
+                            <td class="px-6 py-4 text-xs text-indigo-400">
+                                <ul class="list-disc list-inside">
+                                    <li>李宏毅教授《GAN 機器學習課程》</li>
+                                    <li>WGAN 原始論文 (Arjovsky et al.)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-slate-400">
+                                GAN 的 Loss 只要持續下降，就代表模型正在變好。
+                            </td>
+                            <td class="px-6 py-4 text-emerald-400/90 font-medium">
+                                <span class="text-rose-400 block mb-1">修正：</span>
+                                GAN 的兩個網路在進行動態博弈，其 Loss 往往會上下震盪，**無法單看 Loss 大小來判斷生成品質**。必須改用 FID (Fréchet Inception Distance) 分數來評估。
+                            </td>
+                            <td class="px-6 py-4 text-xs text-indigo-400">
+                                <ul class="list-disc list-inside">
+                                    <li>Medium 數據科學專欄</li>
+                                    <li>PyTorch 官方 GAN 範例庫说明</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="visualization" class="space-y-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-indigo-400 bg-indigo-950 px-2 py-1 rounded border border-indigo-800">任務 4</span>
+                <h3 class="text-2xl font-bold text-white">GAN 架構與流程視覺化</h3>
+            </div>
+            
+            <p class="text-slate-300 leading-relaxed">
+                以下為 GAN 演算法的核心運作架構圖。清晰展示了隨機雜訊、生成器、判別器以及真實資料集之間的流向關係：
+            </p>
+
+            <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 flex flex-col items-center justify-center gap-6">
+                
+                
+
+                <div class="w-full max-w-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative">
+                    
+                    <div class="flex flex-col gap-8 w-full md:w-1/4">
+                        <div class="bg-slate-900 border border-indigo-500/50 p-3 rounded-lg text-center shadow-md">
+                            <p class="text-xs text-indigo-400 font-mono">Random Noise (z)</p>
+                            <p class="text-xs text-slate-500">隨機高維雜訊</p>
+                        </div>
+                        <div class="bg-slate-900 border border-emerald-500/50 p-3 rounded-lg text-center shadow-md">
+                            <p class="text-xs text-emerald-400 font-mono">Real Images (x)</p>
+                            <p class="text-xs text-slate-500">真實照片數據集</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-6 w-full md:w-2/4 items-center">
+                        <div class="bg-indigo-950/80 border-2 border-indigo-500 p-4 rounded-xl w-full text-center relative card-glow">
+                            <span class="absolute -top-2.5 left-4 bg-indigo-500 text-[10px] text-white px-2 py-0.5 rounded font-bold">Network 1</span>
+                            <h4 class="font-bold text-sm text-white">生成器 Generator (G)</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">學習將雜訊映射到真實數據分布</p>
+                        </div>
+
+                        <div class="text-indigo-400 py-1 font-mono text-xs flex flex-col items-center">
+                            <i class="fa-solid fa-arrow-down-long animate-bounce mb-1"></i>
+                            <span>Generated Fake Image (G(z))</span>
+                        </div>
+
+                        <div class="bg-rose-950/80 border-2 border-rose-500 p-4 rounded-xl w-full text-center relative card-glow">
+                            <span class="absolute -top-2.5 left-4 bg-rose-500 text-[10px] text-white px-2 py-0.5 rounded font-bold">Network 2</span>
+                            <h4 class="font-bold text-sm text-white">判別器 Discriminator (D)</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">二元分類器（判斷是 True 或 False）</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/4 flex flex-col items-center justify-center">
+                        <div class="bg-slate-900 border border-slate-700 p-4 rounded-lg text-center w-full">
+                            <p class="text-xs text-slate-400 font-bold mb-1">輸出評分結果</p>
+                            <div class="flex justify-around mt-2">
+                                <span class="text-[11px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded">1 = 真品</span>
+                                <span class="text-[11px] bg-rose-500/20 text-rose-400 px-1.5 py-0.5 rounded">0 = 贗品</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-xs text-slate-500 text-center max-w-md border-t border-slate-900 pt-4 mt-2">
+                    <i class="fa-solid fa-circle-info mr-1"></i> 訓練的核心在於：判別器所產生的誤差（Loss），會同時用來更新 $D$ 的權重與 $G$ 的權重，形成一個閉環的反饋機制。
+                </div>
+            </div>
+        </section>
+
+        <section id="applications" class="space-y-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-indigo-400 bg-indigo-950 px-2 py-1 rounded border border-indigo-800">任務 5</span>
+                <h3 class="text-2xl font-bold text-white">實際應用案例：影像風格轉換 (CycleGAN)</h3>
+            </div>
+            
+            <p class="text-slate-300 leading-relaxed">
+                GAN 在實際生活中有極為廣泛的應用。本次探究我特別挑選了 **CycleGAN（循環一致性生成對抗網路）** 在影像轉換上的應用作為案例。例如將日常拍攝的照片，無須成對的標籤資料，就能自動轉換為動漫、水彩或名畫風格。
+            </p>
+
+            <div class="bg-slate-900/40 p-6 rounded-xl border border-slate-800 max-w-xl mx-auto space-y-4">
+                <h4 class="text-center font-bold text-sm text-slate-300">
+                    <i class="fa-solid fa-wand-magic-sparkles text-indigo-400 mr-1.5"></i> 應用模擬演示（點選按鈕切換）
+                </h4>
+                
+                <div class="relative aspect-video rounded-lg overflow-hidden bg-slate-950 border border-slate-800 flex items-center justify-center">
+                    <div id="img-before" class="absolute inset-0 bg-cover bg-center flex items-center justify-center text-slate-500 font-mono text-sm" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=60');">
+                        <span class="bg-slate-950/70 px-3 py-1 rounded text-white font-sans">【原圖】真實相機拍攝風景</span>
+                    </div>
+                    <div id="img-after" class="absolute inset-0 bg-cover bg-center flex items-center justify-center font-mono text-sm hidden" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop&q=60'); filter: hue-rotate(90deg) saturate(150%) contrast(110%);">
+                        <span class="bg-indigo-950/80 px-3 py-1 rounded text-indigo-300 font-sans border border-indigo-500/30">【CycleGAN 生成】新海誠動漫風格化</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-4 text-xs">
+                    <button onclick="toggleStyle(true)" id="btn-before" class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg shadow transition hover:bg-indigo-500">顯示原圖</button>
+                    <button onclick="toggleStyle(false)" id="btn-after" class="px-4 py-2 bg-slate-800 text-slate-400 font-medium rounded-lg shadow transition hover:bg-slate-700">執行 GAN 風格轉換</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection" class="space-y-6">
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-indigo-400 bg-indigo-950 px-2 py-1 rounded border border-indigo-800">任務 6</span>
+                <h3 class="text-2xl font-bold text-white">自我學習反思</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 space-y-2">
+                    <h4 class="text-sm font-bold text-emerald-400"><i class="fa-solid fa-face-smile mr-1.5"></i> AI 對學習的幫助</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        省去了大量盲目過濾論文的時間。AI 能迅速將複雜的多維矩陣與博弈論公式，精簡成好懂的白話文字，讓我在實作程式碼前就先建立起紮實的模型心智模型。
+                    </p>
+                </div>
+                <div class="bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 space-y-2">
+                    <h4 class="text-sm font-bold text-rose-400"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i> AI 回答的局限性</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        AI 的回覆常流於理想狀態，例如它說只要對抗就會變完美。但實際上 GAN 在訓練時極度難調參（Hyperparameter tuning），對學習率（Learning Rate）高度敏感，這些工程痛點是 AI 沒有特別主動提及、需要自己踩坑才知道的。
+                    </p>
+                </div>
+                <div class="bg-slate-950/60 p-5 rounded-xl border border-slate-800/80 space-y-2">
+                    <h4 class="text-sm font-bold text-indigo-400"><i class="fa-solid fa-graduation-cap mr-1.5"></i> 我最後真正學到了什麼</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        不僅掌握了生成器與判別器的交互代碼邏輯，更建立起「慎思明辨」的科技工程素養。了解生成式 AI 在帶來強大創作力的同時，也存在模型崩潰與不易收斂的物理上限，需搭配查證文獻才能真正內化。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs text-slate-600">
+        <p>© 2026 深度學習課程期末成果探究網頁. Powered by Tailwind CSS & Gemini 輔助規劃.</p>
+    </footer>
+
+    <script>
+        function toggleStyle(showBefore) {
+            const imgBefore = document.getElementById('img-before');
+            const imgAfter = document.getElementById('img-after');
+            const btnBefore = document.getElementById('btn-before');
+            const btnAfter = document.getElementById('btn-after');
+
+            if (showBefore) {
+                imgBefore.classList.remove('hidden');
+                imgAfter.classList.add('hidden');
+                btnBefore.className = "px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg shadow transition hover:bg-indigo-500";
+                btnAfter.className = "px-4 py-2 bg-slate-800 text-slate-400 font-medium rounded-lg shadow transition hover:bg-slate-700";
+            } else {
+                imgBefore.classList.add('hidden');
+                imgAfter.classList.remove('hidden');
+                btnBefore.className = "px-4 py-2 bg-slate-800 text-slate-400 font-medium rounded-lg shadow transition hover:bg-slate-700";
+                btnAfter.className = "px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg shadow transition hover:bg-indigo-500";
+            }
+        }
+    </script>
+</body>
+</html>
