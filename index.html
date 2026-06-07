@@ -91,7 +91,7 @@
                         <h4 class="text-white text-base sm:text-lg">這個演算法是什麼？</h4>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        <strong class="text-slate-200">GAN（生成對抗網路）</strong>是由 Ian Goodfellow 在 2014 年提出的一種深度學習架構。它的核心思想非常獨特，不是讓一個神經網路孤軍奮戰，而是讓兩個神經網路（負責無中生有的<span class="text-emerald-400 font-bold">生成器 G</span> 與負責嚴格審查的<span class="text-rose-400 font-bold">辨別器 D</span>）在「互相競爭」中共同進步。
+                        <strong class="text-slate-200">GAN（生成對抗網路）</strong>是由 Ian Goodfellow 在 2014 年提出的一種深度學習架構。它的核心思想和其他演算法最大的差別是，它並不是讓一個神經網路孤軍奮戰，而是讓兩個神經網路（負責無中生有的<span class="text-emerald-400 font-bold">生成器 G</span> 與負責嚴格審查的<span class="text-rose-400 font-bold">辨別器 D</span>）在「互相競爭」中共同進步。
                     </p>
                 </div>
 
@@ -101,7 +101,7 @@
                         <h4 class="text-white text-base sm:text-lg">主要解決什麼問題？</h4>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        在 <span class="text-indigo-400 font-bold">GAN</span> 出現之前，傳統機器學習在<strong class="text-slate-200">「創造新數據」</strong>（尤其是高解析度影像、複雜音訊）上效果不理想，生成的作品往往模糊且缺乏細節。GAN 解決了以下核心問題：
+                        在 <span class="text-indigo-400 font-bold">GAN</span> 出現之前，傳統機器學習能力主要建立在「能力主要建立在「識別」和「分析」現有數據上，在<strong class="text-slate-200">「創造新數據」</strong>（尤其是高解析度影像、複雜音訊）上效果不理想。因此 GAN 解決了以下核心問題：
                     </p>
                     
                     <div class="grid md:grid-cols-2 gap-4 text-xs sm:text-sm leading-relaxed">
@@ -181,14 +181,14 @@
                     <span class="text-emerald-400 mt-1 text-xs"><i class="fa-solid fa-circle-check"></i></span>
                     <div>
                         <strong class="text-slate-200">影像風格轉換：</strong>
-                        <span>如線條草圖自動塗色、將模糊的醫療 CT 斷層掃描轉換成高清 MRI。</span>
+                        <span>如線條草圖自動塗色、將現實照片轉換為指定風格（如動漫風、水墨畫風）。</span>
                     </div>
                 </li>
                 <li class="flex items-start gap-2.5">
                     <span class="text-emerald-400 mt-1 text-xs"><i class="fa-solid fa-circle-check"></i></span>
                     <div>
                         <strong class="text-slate-200">人臉生成與變臉：</strong>
-                        <span>如經典的 StyleGAN 架構，能無中生有地創造出世界上不存在的逼真臉孔。</span>
+                        <span>經典的 StyleGAN 架構，能無中生有地創造出世界上不存在的逼真臉孔。</span>
                     </div>
                 </li>
                 <li class="flex items-start gap-2.5">
@@ -208,7 +208,7 @@
                 <div class="relative pl-6 border-l-2 border-slate-700 space-y-3 text-xs sm:text-sm text-slate-400">
                     <div>
                         <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-rose-500"></span>
-                        <strong class="text-slate-200">剛開始（第一階段）：</strong> 假鈔販子技術很爛，印出來的假鈔連顏色都不對；警察也很容易就能抓到他。
+                        <strong class="text-slate-200">剛開始（第一階段）：</strong> 假鈔販子技術不成熟，印出來的假鈔連顏色都不對；警察也很容易就能抓到他。
                     </div>
                     <div>
                         <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-amber-500"></span>
@@ -216,7 +216,7 @@
                     </div>
                     <div>
                         <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-emerald-500"></span>
-                        <strong class="text-slate-200">最終結果（完美平衡）：</strong> 假鈔販子印出的假鈔完美到與真鈔一模一樣，警察此時開天眼也只能猜「這張鈔票有 50% 的機率是真的」。這時候，生成器就徹底成功了。
+                        <strong class="text-slate-200">最終結果（完美平衡）：</strong> 假鈔販子印出的假鈔幾乎與真鈔一模一樣，警察此時只能猜「這張鈔票有 50% 的機率是真的」。這時候，生成器就成功了。
                     </div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
                     <div class="flex flex-col items-end space-y-1 max-w-[85%] sm:max-w-[75%]">
                         <span class="text-[11px] text-slate-500 font-medium mr-1"></span>
                         <div class="bg-indigo-600 text-white rounded-2xl rounded-tr-none px-4 py-3 text-xs sm:text-sm shadow-md leading-relaxed">
-                            我想做一個關於 GAN（生成對抗網路）的網頁專題，可以用數學公式以外的方式簡單說明嗎？這兩個神經網路到底是如何互相影響？用淺顯易懂的方式解釋它的訓練過程。
+                            我想瞭解 GAN（生成對抗網路）的運作模式，可以用數學公式以外的方式簡單說明嗎？這兩個神經網路到底是如何互相影響？用淺顯易懂的方式解釋它的訓練過程。
                         </div>
                     </div>
                     <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs shrink-0 shadow-md">
@@ -263,7 +263,7 @@
                                 </li>
                                 <li>
                                     <strong class="text-amber-400 block mb-0.5">🏁 終極目標（納許均衡）：</strong>
-                                    <span>當歹徒印出的假鈔完美到無懈可擊，警察開天眼也只能瞎猜（準確率維持 50%）。這時就代表生成器大功告成。</span>
+                                    <span>當歹徒印出的假鈔完美到無懈可擊，警察也無法辨識其真偽，只能猜（準確率維持 50%）。這時就代表生成器大功告成。</span>
                                 </li>
                             </ul>
                         </div>
@@ -279,7 +279,7 @@
                     </p>
                     <ul class="list-disc list-inside text-xs text-slate-500 pl-1 space-y-1">
                         <li>為什麼程式碼裡必須分開固定某一方的權重，進行<span class="text-slate-300">「交替反向傳播」</span>。</li>
-                        <li>了解兩者是相互推動的，任何一方太弱（如警察太笨或太嚴格）都會導致訓練失敗。</li>
+                        <li>了解兩者是相互推動的，任何一方太弱（如警察太笨或太嚴格）都可能導致訓練失敗。</li>
                     </ul>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed pt-1">
                         這樣易懂的思維框架讓沒學過機器學習的人也能馬上了解！
@@ -308,7 +308,7 @@
                         </div>
                         
                         <blockquote class="border-l-4 border-amber-500/50 bg-slate-950 p-3 rounded-r-lg text-xs sm:text-sm text-slate-400 italic">
-                            「當訓練達到終極目標（納許均衡）時，警察開天眼也只能瞎猜，準確率維持 50%。」
+                            「當訓練達到終極目標（納許均衡）時，警察只能瞎猜，準確率維持 50%。」
                         </blockquote>
                         
                         <div class="space-y-3">
@@ -324,9 +324,9 @@
                             </div>
 
                             <div class="bg-slate-950 p-3 rounded-lg border border-slate-850 space-y-1">
-                                <span class="text-cyan-400 text-xs font-bold block">📺 方法 B：查詢科普影片對照</span>
+                                <span class="text-cyan-400 text-xs font-bold block">📺 方法 B：查詢科普資料和影片對照</span>
                                 <p class="text-xs text-slate-400">
-                                    在 YouTube 搜尋或觀看知名科技部落格的動畫解析，觀察教學影片中提到「理想狀態」時的曲線與數據特徵。
+                                    搜尋或觀看各方資料解析，觀察教學影片中提到「理想狀態」時的曲線與數據特徵還有資料中介紹演算法背後的邏輯。
                                 </p>
                             </div>
                         </div>
@@ -343,7 +343,7 @@
 
                     <div class="space-y-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
                         <p>
-                            <strong class="text-emerald-400">查證結論：此重點完全正確！且獲得多方科普資料的印證。</strong>
+                            <strong class="text-emerald-400">查證結論：此重點是正確的！且獲得多方科普資料的印證。</strong>
                         </p>
                         
                         <ul class="list-disc list-outside pl-4 space-y-2 text-xs text-slate-400">
@@ -477,7 +477,7 @@
             </div>
 
             <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                生成對抗網路（GAN）在現實世界的應用極為廣泛，其中<strong class="text-cyan-400">「影像風格轉換」</strong>一度引起網路熱潮。以下互動圖展示了將平凡的現實風景，一鍵轉化為極具渲染力的唯美動漫風格。
+                生成對抗網路（GAN）在現實世界的應用極為廣泛，其中<strong class="text-cyan-400">「影像風格轉換」</strong>一度引起網路熱潮。以下互動圖展示了將平凡的現實風景，一鍵轉化為唯美動漫風格。
             </p>
 
             <div class="grid lg:grid-cols-2 gap-6 w-full items-start">
@@ -519,7 +519,7 @@
                     </div>
                     
                     <p class="text-[11px] text-center text-slate-500 italic">
-                        <i class="fa-regular fa-hand-pointer mr-1"></i> 請左右拖曳圖片中央的藍色拉條，親自感受畫風的無縫切換！
+                        <i class="fa-regular fa-hand-pointer mr-1"></i> 可左右拖曳圖片中央的藍色拉條，感受畫風的無縫切換！
                     </p>
                 </div>
 
@@ -547,7 +547,7 @@
                                     <i class="fa-regular fa-circle-check text-cyan-400"></i> 嚴格保留骨架
                                 </h5>
                                 <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed pl-5">
-                                    生成器在試圖欺騙判別器時，如果任意把原本是「電線桿」或「大樓」的位置抹除，就會立刻被判別器識破並給予重罰。這迫使 AI 必須在維持物理構圖不變的前提下，只進行藝術性的色彩與光影渲染。
+                                    生成器在試圖欺騙判別器時，如果任意把原本是「電線桿」或「大樓」的位置抹除，就會立刻被判別器識破。這迫使 AI 必須在維持物理構圖不變的前提下，只進行藝術性的色彩與光影渲染。
                                 </p>
                             </div>
                         </div>
@@ -559,7 +559,7 @@
             <div class="bg-slate-950 p-4 rounded-xl border border-slate-850 w-full text-center">
                 <p class="text-xs text-slate-400 leading-relaxed">
                     <strong class="text-cyan-400 font-semibold">🚀 產業落地價值：</strong>
-                    這項技術已廣泛應用於現代手遊的動漫濾鏡、影視動畫的場景自動化後期渲染。原本動畫師需要花費數週手工繪製的背景，現在利用 GAN 演算法在幾秒鐘內即可批量產出初稿，極大地釋放了內容創作者的生產力。
+                    這項技術已廣泛應用於手遊的動漫濾鏡、影視動畫的場景自動化後期渲染。原本動畫師需要花費數週手工繪製的背景，現在利用 GAN 演算法在幾秒鐘內即可批量產出初稿，極大地釋放了內容創作者的生產力。
                 </p>
             </div>
         </section>
@@ -594,12 +594,12 @@
                         <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-1 rounded-md">
                             <i class="fa-solid fa-rocket"></i>
                         </span>
-                        <h4 class="text-white text-base">1. AI 對學習的效率催化</h4>
+                        <h4 class="text-white text-base">1. AI 對學習的幫助</h4>
                     </div>
                     <ul class="text-xs sm:text-sm text-slate-400 space-y-2.5 flex-1 pl-1">
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-400 mt-0.5">▪</span>
-                            <span><strong>加速原型開發：</strong>在實際應用案例的「Before/After 互動對比功能」構思，AI 在幾秒鐘內不僅提出完整互動的方式，還給出了基礎語法雛形，大幅節省了從零開始學習如何製作互動介面的時間。</span>
+                            <span><strong>靈感啟發：</strong>在實際應用案例的「Before/After 互動對比功能」構思，AI 在幾秒鐘內不僅提出完整互動的方式，還給出了基礎語法雛形，大幅節省了從零開始學習如何製作互動介面的時間。</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-400 mt-0.5">▪</span>
@@ -618,7 +618,7 @@
                     <ul class="text-xs sm:text-sm text-slate-400 space-y-2.5 flex-1 pl-1">
                         <li class="flex items-start gap-2">
                             <span class="text-amber-400 mt-0.5">▪</span>
-                            <span><strong>語義理解與實體落差：</strong>大型語言模型在處理特定外部資源（如公開圖庫網址）時，容易出現文字標籤與圖片實際內容不符的現象（例如將街景辨識為公仔、富士山等），這證明 AI 仍缺乏真實世界的視覺感知與即時驗證能力。</span>
+                            <span><strong>語義理解與實體落差：</strong>大型語言模型在處理特定外部資源（如公開圖庫網址）時，容易出現文字標籤與圖片實際內容不符的現象（例如將街景辨識為公仔、富士山等），這證明 AI 仍缺乏真實世界完整的視覺感知與即時驗證能力。</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-amber-400 mt-0.5">▪</span>
@@ -637,11 +637,15 @@
                     <ul class="text-xs sm:text-sm text-slate-400 space-y-2.5 flex-1 pl-1">
                         <li class="flex items-start gap-2">
                             <span class="text-cyan-400 mt-0.5">▪</span>
-                            <span><strong>獨立審查與主動除錯：</strong>學會了如何當一個「程式碼審查員（Code Reviewer）」，捕捉到畫面內容的不合理處，並引導 AI 進行精準修正。</span>
+                            <span><strong>獨立審查與主動除錯：</strong>在最初生成的網頁介面捕捉到畫面內容的不合理處，不斷調整內容排版並重複比對，呈現理想的整齊版面，同時學習輸入精準指令給 AI 工具，引導 AI 進行精準修正。</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-cyan-400 mt-0.5">▪</span>
-                            <span><strong>掌握前端實務與環境配置：</strong>不只理解了 GAN 的影像風格轉換原理，更親自掌握了利用 CSS <code class="text-cyan-400 bg-cyan-950 px-1 py-0.5 rounded font-mono text-[11px]">clip-path</code> 與 JavaScript 監聽器來建構高互動性網頁的實作技巧。</span>
+                            <span><strong>GAN生成對抗網路的認識：</strong>透過詢問 AI 還有查詢各種資料的過程，從最初對於 GAN 只有表面認識，逐漸瞭解其內部運作和模式，進而明白它如何在不依賴人工標註的情況下，透過生成器與判別器的博弈，達到「無中生有」的創新境界，同時打破了我對傳統機器學習的既定框架。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyan-400 mt-0.5">▪</span>
+                            <span><strong>掌握前端實務與環境配置：</strong>不只理解了 GAN 生成對抗網路的原理，也掌握了利用 CSS <code class="text-cyan-400 bg-cyan-950 px-1 py-0.5 rounded font-mono text-[11px]">clip-path</code> 與 JavaScript 監聽器來建構高互動性網頁的實作技巧。</span>
                         </li>
                     </ul>
                 </div>
@@ -652,7 +656,7 @@
     </main>
 
     <footer class="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs text-slate-600 code-font tracking-wider">
-        <p>© 2026 111316011_GAN 生成對抗網路主題探究.</p>
+        <p>© 2026 111316011_GAN 生成對抗網路主題探究</p>
     </footer>
 
     <script>
